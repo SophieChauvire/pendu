@@ -4,11 +4,11 @@
 Ce programme contient le jeu du pendu
 @author: sophie chauviré
 Created on Fri Nov 27 10:57:00 2020
+
+répertoire git : https://github.com/SophieChauvire/pendu
 """
 
-"""
-Ce programme s'appuie sur les fichiers fonctions.py et mots.py"
-"""
+
 from paramètres_pendu import lines , meilleur_score
 from fonctions import*
 

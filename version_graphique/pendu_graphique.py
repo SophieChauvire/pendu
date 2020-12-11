@@ -4,6 +4,8 @@
 Ce programme est une version graphique du jeu du pendu
 Created on Fri Dec 11 08:16:11 2020
 @author: sophie
+
+répertoire git : https://github.com/SophieChauvire/pendu
 """
 
 from tkinter import Tk , Label , Button , StringVar , Entry
