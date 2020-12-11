@@ -12,7 +12,8 @@ ainsi que sur le fichier mot.py
 """
 from random import randint
 import string
-from paramètres_pendu import *
+from paramètres_pendu import*
+from jeu_pendu import *
 
 
 def choix_mot():
@@ -24,6 +25,7 @@ def choix_mot():
     m=randint(0,len(lines)-1)
     return lines[m]
  
+
 
 def entrer_lettre():
     """
@@ -45,6 +47,7 @@ def entrer_lettre():
     return lettre
     
 
+
 def renvoyer_mot(mot_choisi,liste_lettres):
     """
     cette fonction renvoit un mot partiellement construit en fonction des lettres trouvées par l'utilisateur et du mot à trouver
@@ -62,3 +65,62 @@ def renvoyer_mot(mot_choisi,liste_lettres):
             mot_partiel+=' _'
     return mot_partiel
 
+
+def test_lettre(mot_choisi,lettre,lettres_correctes,lettres_fausses,nb_vies):
+    """
+    Cette fonction renvoie si une lettre fait partie d'un mot ou non, 
+    entrées : un mot,une lettre à tester, deux listes de lettres,un entier non nul représentant le nb d'essais
+    sorties : un mot, les deux listes entrées modifiées, le nb d'essais modifié
+    """
+    #1° possilité : la lettre a déja été donnée
+    if lettre in lettres_correctes or lettre in lettres_fausses:
+        print('Vous avez déjà donné cette lettre')
+    
+    #2e posibilité : la lettre est dans le mot
+    elif lettre in mot_choisi:
+            lettres_correctes.append(lettre)
+            print('\n Bravo ! Vous avez trouvé une lettre. Il vous reste {} vies'.format(nb_vies))
+            
+    #3e possibilité : la lettre n'est pas dans le mot, le joueur perd une vie
+    else:
+            lettres_fausses.append(lettre)
+            nb_vies-=1
+            print('\n Non, cette lettre ne figure pas dans le mot, il vous reste {} vies'.format(nb_vies))
+    mot=renvoyer_mot(mot_choisi,lettres_correctes)
+    return(mot,lettres_correctes,lettres_fausses,nb_vies)
+    
+    
+
+def rejouer():
+    """
+    Cette fonction relance la fonction jouer_pendu() si l'utilisateur donne un réponse positive
+    entrée : aucune
+    sortie : aucune
+    """
+    #on demande à l'utilisateur s'il veut rejouer
+    reponse = input('Souhaitez vous relancer une partie ?')
+    #on teste sa réponse, elle doit être assez proche du mot oui
+    if reponse in ['oui','OUI','O','Oui','o','ok','OK','Ok']:
+        jouer_pendu()
+        
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
