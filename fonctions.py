@@ -21,7 +21,7 @@ def choix_mot():
     entré : aucune
     sortie : renvoie un élement de type str de la liste lines
     """
-    m=randint(0,len(lines))
+    m=randint(0,len(lines)-1)
     return lines[m]
  
 
@@ -57,7 +57,7 @@ def renvoyer_mot(mot_choisi,liste_lettres):
         #la lettre a été trouvée donc on l'affiche
         if i in liste_lettres :
             mot_partiel+=i
-        #la lettre n'a pas été trouvée, on met _ à la place 
+        #la lettre n'a pas été trouvée, on affiche _ à la place 
         else :
             mot_partiel+=' _'
     return mot_partiel
