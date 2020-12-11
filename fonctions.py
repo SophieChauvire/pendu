@@ -33,9 +33,13 @@ def entrer_lettre():
     sortie : renvoie une lettre majusucule
     """
     lettre = input("Entrez une lettre : ")
+    
+    #On regarde si l'entrée donnée par l'utilisateur est bien une lettre
     if lettre not in string.ascii_letters or len(lettre)>1:
         print("Merci d'entrer une lettre valide")
         return entrer_lettre()
+    
+    #si c'est bien une lettre, on la met en majuscules 
     else:
         lettre = lettre.upper()
     return lettre
@@ -50,8 +54,10 @@ def renvoyer_mot(mot_choisi,liste_lettres):
     """
     mot_partiel=''
     for i in mot_choisi:
+        #la lettre a été trouvée donc on l'affiche
         if i in liste_lettres :
             mot_partiel+=i
+        #la lettre n'a pas été trouvée, on met _ à la place 
         else :
             mot_partiel+=' _'
     return mot_partiel
